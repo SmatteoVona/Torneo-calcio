@@ -1,0 +1,28 @@
+doctype html
+html
+    head
+        title Seleziona le Squadre
+    body
+        h1 Seleziona le Squadre per la Partita
+        form(action="/calcolo", method="post")
+            .form-group
+                label(for="squadra1") Squadra 1
+                select(name="squadra1", id="squadra1")
+                    each squadra in squadre
+                        option(value=squadra.nome)= squadra.nome
+            .form-group
+                label(for="squadra2") Squadra 2
+                select(name="squadra2", id="squadra2")
+                    each squadra in squadre
+                        option(value=squadra.nome)= squadra.nome
+            .form-group
+                label(for="punteggio1") Punteggio 1
+                input(type="number", name="punteggio1", id="punteggio1", required)
+            .form-group     
+                label(for="punteggio2") Punteggio 2
+                input(type="number", name="punteggio2", id="punteggio2", required)
+            button(type="submit") Invia
+        
+        form(action="/azzera", method="post")
+            button(type="sumbit") Azzera
+        
