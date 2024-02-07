@@ -1,0 +1,21 @@
+doctype html
+html
+    head
+        title Classifica Squadre
+        link(rel="stylesheet", href="/classifica.css")
+    body
+        h1 Classifica Squadre
+        form(action="/index", method="get")
+            button(type="submit").button Aggiunta partite
+        table
+            thead
+                tr
+                    th Posizione
+                    th Nome
+                    th Punti
+            tbody
+                each squadra in squadre
+                    tr
+                        td #{squadra.posizione}
+                        td #{squadra.nome}
+                        td #{squadra.punti}

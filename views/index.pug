@@ -2,9 +2,12 @@ doctype html
 html
     head
         title Seleziona le Squadre
+        link(rel="stylesheet", href="/home.css") 
     body
         h1 Seleziona le Squadre per la Partita
-        form(action="/calcolo", method="post")
+        if errore
+            p.errore #{errore}
+        form(action="/controlli", method="post")
             .form-group
                 label(for="squadra1") Squadra 1
                 select(name="squadra1", id="squadra1")
@@ -17,12 +20,14 @@ html
                         option(value=squadra.nome)= squadra.nome
             .form-group
                 label(for="punteggio1") Punteggio 1
-                input(type="number", name="punteggio1", id="punteggio1", required)
+                input(type="text", name="punteggio1", id="punteggio1")
             .form-group     
                 label(for="punteggio2") Punteggio 2
-                input(type="number", name="punteggio2", id="punteggio2", required)
-            button(type="submit") Invia
+                input(type="text", name="punteggio2", id="punteggio2")
+            button(type="submit").button Invia
         
         form(action="/azzera", method="post")
-            button(type="sumbit") Azzera
-        
+            button(type="submit").button Azzera
+
+        form(action="/classifica", method="post")
+            button(type="submit").button Visualizza classifica
